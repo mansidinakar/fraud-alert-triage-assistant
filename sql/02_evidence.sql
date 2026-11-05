@@ -41,3 +41,18 @@ JOIN transactions h ON h.device_type = t.device_type
                    AND h.occurred_at >= t.occurred_at - INTERVAL '30 days'
                    AND h.occurred_at < t.occurred_at
 WHERE a.alert_id = ?;
+
+-- name: customer_profile
+SELECT c.syn_segment, c.syn_account_open_date
+FROM alerts a
+JOIN transactions t ON t.transaction_id = a.transaction_id
+JOIN customers c ON c.customer_id = t.customer_id
+WHERE a.alert_id = ?;
+
+-- name: customer_group_size
+SELECT COUNT(*) AS group_txn_count_to_date
+FROM alerts a
+JOIN transactions t ON t.transaction_id = a.transaction_id
+JOIN transactions g ON g.customer_id = t.customer_id
+                   AND g.occurred_at <= t.occurred_at
+WHERE a.alert_id = ?;

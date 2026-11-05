@@ -26,3 +26,8 @@ These fields are generated for demonstration and are never presented as real dat
 - Result: 41,672 customer groups. Median group size is 2 transactions, but the largest groups hold 9,900, 5,866 and 5,766 transactions, so some groups combine several real people.
 - Effect: 30-day customer history is reliable for small groups and coarse for large ones. The evidence packet will include the group size so analysts can judge this.
 - Bug found and fixed during Phase 2: an earlier version collapsed every row with a missing card2 or addr1 into a single fake customer. The fix is in src/load_data.py.
+
+## Drift check (weekly fraud rate, scored period)
+- Fraud rate among alerts ranges from 19.6% to 27.3% across weeks, with no sustained trend or surge.
+- Fraud rate across all transactions ranges from 3.0% to 4.4% by week. The first and last weeks are partial.
+- Dates use the assumed base date of 2017-12-01, so weeks are relative, not real calendar weeks.
