@@ -179,3 +179,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+.venv/
+data/
+.env
+*.csv
+*.parquet
+.ipynb_checkpoints/
+.DS_Store
+.qodo/
