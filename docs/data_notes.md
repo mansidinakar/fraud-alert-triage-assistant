@@ -20,3 +20,9 @@ The raw data is not stored in this repo; it is downloaded through the Kaggle API
 ## Synthetic fields
 Anything not in the original data is prefixed `syn_` (for example account open date).
 These fields are generated for demonstration and are never presented as real data.
+
+## Customer grouping (measured Nov 5, 2026)
+- The dataset has no customer ID. A customer is derived from card1 + card2 + addr1, with missing values replaced by -1 before grouping.
+- Result: 41,672 customer groups. Median group size is 2 transactions, but the largest groups hold 9,900, 5,866 and 5,766 transactions, so some groups combine several real people.
+- Effect: 30-day customer history is reliable for small groups and coarse for large ones. The evidence packet will include the group size so analysts can judge this.
+- Bug found and fixed during Phase 2: an earlier version collapsed every row with a missing card2 or addr1 into a single fake customer. The fix is in src/load_data.py.
