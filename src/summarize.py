@@ -41,12 +41,14 @@ def _extract_json(text):
     return json.loads(match.group(0))
 
 
-def summarize_alert(alert_id, packet=None, prompt_version=DEFAULT_VERSION):
+def summarize_alert(alert_id, packet=None, prompt_version=DEFAULT_VERSION, feedback=None):
     full_packet = packet if packet is not None else build_packet(alert_id)
     # v1 saw everything (baseline); v2 sees the packet without synthetic fields
     llm_packet = full_packet if prompt_version == 'triage_v1' else _strip_synthetic(full_packet)
     system = (PROMPT_DIR / f'{prompt_version}.txt').read_text()
     user = 'Evidence packet:\n' + json.dumps(llm_packet, indent=2)
+    if feedback:
+        user += feedback
 
     result = {
         'alert_id': alert_id,
@@ -61,7 +63,7 @@ def summarize_alert(alert_id, packet=None, prompt_version=DEFAULT_VERSION):
         'model_id': None,
     }
     try:
-        r = complete(system, user, max_tokens=500)
+        r = complete(system, user, max_tokens=900 if prompt_version == 'triage_v1' else 500)
         result.update(raw_text=r['text'], input_tokens=r['input_tokens'],
                       output_tokens=r['output_tokens'], latency_ms=r['latency_ms'],
                       model_id=r['model_id'])
