@@ -1,0 +1,9 @@
+[Unit]
+Description=Fraud triage API
+After=network-online.target
+[Service]
+User=ssm-user
+ExecStart=/home/ssm-user/app/start.sh python -m uvicorn src.api:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

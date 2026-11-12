@@ -1,0 +1,9 @@
+[Unit]
+Description=Fraud triage analyst screen
+After=fraud-api.service
+[Service]
+User=ssm-user
+ExecStart=/home/ssm-user/app/start.sh python -m streamlit run src/ui.py --server.port 8501 --server.headless true
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
