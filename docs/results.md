@@ -17,7 +17,7 @@ The validator checks that every cited path exists, that numbers and dates appear
 
 One reviewer scored 100 outputs, with AI-assisted adjudication on the first pass. Rubric: count wrong or unsupported statements in the summary, history_reliability, escalate and false-positive lines.
 
-- Claim-level faithfulness: 87.6%. The target was 98%, so it is missed.
+- Claim-level faithfulness: 87.6% (112 unsupported of 902 claims). The target was 98%, so it is missed.
 - Summaries with zero unsupported claims: 25/100 (95% CI 18%-34%).
 - Summaries judged misleading in framing: 66/100 (95% CI 56%-75%). See section 3 for why this label is low-reliability.
 - Suggested disposition judged sensible from the evidence alone: 33 yes, 67 unsure, 0 no. There is no ground truth for this, so it is weak evidence.
