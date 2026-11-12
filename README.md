@@ -42,7 +42,7 @@ The validator passes outputs that a human still finds unsupported, so the valida
 - **Analyst time saved.** No time study was run, so there is no claim here.
 - **Whether "misleading" labels are reliable.** Re-scoring 10 cases blind agreed on 5, so I lead with the code-counted patterns above instead.
 - **Whether suggested dispositions are right.** There was no ground truth to judge them, and the model leans toward escalate (127 of 163 stored outputs).
-- **Single reviewer.** All human scoring was done by one person.
+- **Single reviewer, with AI help.** I did the scoring, cross-checked against AI-generated scores, with AI-assisted adjudication on the first pass. There was no second human reviewer.
 
 ## Security and guardrails
 
@@ -83,3 +83,7 @@ You need Python 3.12, the IEEE-CIS data from Kaggle (not included; see `docs/dat
 - `tests/` API, evidence and validator tests
 - `docs/` PRD, data notes, results, AWS deployment notes, IAM policy
 - `deploy/` the setup files used on the server
+
+## How AI was used
+
+I used Claude as a coding and project coach while building this. I ran and tested the code and made the final calls on scope. I did the scoring, cross-checked against AI-generated scores, with AI-assisted adjudication on the first pass. The product itself also uses Claude Haiku 4.5 on Amazon Bedrock to write the summaries, and that is what the results above measure.
