@@ -9,7 +9,7 @@ All figures were measured on the IEEE-CIS data with the pipeline in this repo (C
 | Passed validator on first try | 8.5% | 39.0% |
 | Passed after one repair attempt | n/a | 81.5% (163/200) |
 
-v2 latency: p50 4256 ms, p95 9889 ms. The PRD target is p95 <= 8 s, so this target is missed before AWS deployment.
+v2 latency: p50 4256 ms, p95 9889 ms. The PRD target is p95 <= 8 s, so this target is missed before AWS deployment. On AWS EC2 (200 alerts) it was p50 4234 ms, p95 10974 ms, so the target is still missed.
 
 The validator checks that every cited path exists, that numbers and dates appear in the evidence packet, and that every field carries a citation. It cannot check whether a statement is true or fairly framed.
 
@@ -17,7 +17,7 @@ The validator checks that every cited path exists, that numbers and dates appear
 
 One reviewer scored 100 outputs, with AI-assisted adjudication on the first pass. Rubric: count wrong or unsupported statements in the summary, history_reliability, escalate and false-positive lines.
 
-- Claim-level faithfulness: 87.6% (112 unsupported of 902 claims). The target was 98%, so it is missed.
+- Claim-level faithfulness: 87.6% (112 unsupported of 902 claims). The PRD defines the 98% target per summary (every claim supported), and by that definition 25 of 100 summaries passed, so it is missed.
 - Summaries with zero unsupported claims: 25/100 (95% CI 18%-34%).
 - Summaries judged misleading in framing: 66/100 (95% CI 56%-75%). See section 3 for why this label is low-reliability.
 - Suggested disposition judged sensible from the evidence alone: 33 yes, 67 unsure, 0 no. There is no ground truth for this, so it is weak evidence.

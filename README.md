@@ -26,8 +26,8 @@ Analysts reviewing alerts spend their time gathering context from several tables
 | v2 after one repair | 81.5% (163 of 200) |
 | Same run on AWS EC2 | 164 of 200 passed, 36 fell back to raw evidence |
 | Latency on AWS, p50 / p95 | 4.2 s / 11.0 s. The 8 s p95 target was **missed** |
-| Human check of 100 validated outputs: claims supported | 87.6% (112 unsupported of 902 claims). The 98% target was **missed** |
-| Outputs with zero unsupported claims | 25 of 100 |
+| Human check of 100 validated outputs: claims supported | 87.6% (112 unsupported of 902 claims) |
+| Summaries where every claim is supported (the PRD's faithfulness definition) | 25 of 100. The 98% target was **missed** |
 
 The validator passes outputs that a human still finds unsupported, so the validator pass rate is not a faithfulness number.
 
