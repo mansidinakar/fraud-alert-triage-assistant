@@ -2,6 +2,8 @@
 
 Nov 4, 2026
 
+*Status: this is the original scope, written before the build. What was built and measured against these targets is in `docs/product_memo.md` and `docs/results.md`.*
+
 ## Overview
 
 The Fraud Alert Triage Assistant helps Tier-1 fraud analysts clear transaction-monitoring alerts faster by scoring each alert, summarizing the evidence in plain language and recommending a disposition, while a human always makes the final call.
@@ -10,7 +12,7 @@ It is a portfolio project built on a real, anonymized public fraud dataset (IEEE
 
 ## Problem and opportunity
 
-Rules-based fraud monitoring raises far more alerts than analysts can investigate carefully, and most turn out to be legitimate activity. Each alert still costs analyst time, because the evidence is spread across transaction history, customer profile, device and prior-case records.
+Rules-based fraud monitoring is commonly described as raising more alerts than analysts can investigate carefully, with most turning out to be legitimate activity. This is an assumption in this PRD, not a cited figure. Each alert still costs analyst time, because the evidence is spread across transaction history, customer profile, device and prior-case records.
 
 Three consequences follow:
 
@@ -20,7 +22,7 @@ Three consequences follow:
 
 The opportunity is to order the queue by risk, assemble the evidence automatically and draft a grounded explanation, so analysts spend their time deciding rather than searching.
 
-**Note on baselines:** the numbers in this PRD are targets set for the public dataset. Before publishing, replace the assumed baselines with cited industry benchmarks.
+**Note on baselines:** the targets in this PRD were set for the public dataset and are not taken from industry benchmarks. Statements about industry alert volumes are assumptions.
 
 ## Users and personas
 

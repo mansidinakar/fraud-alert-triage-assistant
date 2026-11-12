@@ -31,3 +31,7 @@ These fields are generated for demonstration and are never presented as real dat
 - Fraud rate among alerts ranges from 19.6% to 27.3% across weeks, with no sustained trend or surge.
 - Fraud rate across all transactions ranges from 3.0% to 4.4% by week. The first and last weeks are partial.
 - Dates use the assumed base date of 2017-12-01, so weeks are relative, not real calendar weeks.
+
+## Data license
+
+The transaction data comes from Kaggle's IEEE-CIS Fraud Detection competition. Its rules allow the Competition Data to be used for non-commercial purposes, including academic research and education, and they do not allow it to be published or made available to people who have not agreed to the rules. This repo uses the data for a non-commercial portfolio project and does not include it. To run the project, download the data yourself from Kaggle under the same rules.
